@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="12/18/21||23:09:37" using="Simscape Multibody Link Version 7.0" from="SolidWorks 29.3.0"/>
+<ModelUnits mass="kilogram" length="millimeter"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="" uid="" version="106">
+<AssemblyFile name="" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="UR10(2)^UR10-1" uid="UR10(2)^UR10-1" grounded="true" entityUid="UR10(2)^UR10" rigid="true">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+<Instance name="Size 4 Joint^UR10(2)_UR10-1" uid="Size 4 Joint^UR10(2)_UR10-1" grounded="true" entityUid="Size 4 Joint^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>-1 5.9999999999999997e-15 0 0 0 -1 -5.9999999999999997e-15 -1 0</Rotation>
+<Translation>0 0.128 -1.0000000000000001e-15</Translation>
+</Transform>
+</Instance>
+<Instance name="Size 2 Joint^UR10(2)_UR10-3" uid="Size 2 Joint^UR10(2)_UR10-3" grounded="true" entityUid="Size 2 Joint^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>-1 4.0000000000000003e-15 0 -4.0000000000000003e-15 -1 0 0 0 1</Rotation>
+<Translation>-5e-15 1.3797999999999999 -0.16389071053754301</Translation>
+</Transform>
+</Instance>
+<Instance name="Lower arm^UR10(2)_UR10-1" uid="Lower arm^UR10(2)_UR10-1" grounded="true" entityUid="Lower arm^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>-4.0000000000000003e-15 -7.0000000000000001e-15 1 1 0 4.0000000000000003e-15 0 1 7.0000000000000001e-15</Rotation>
+<Translation>0.0042755394109089996 1.0533761974696789 -0.070426892812295999</Translation>
+</Transform>
+</Instance>
+<Instance name="Base^UR10(2)_UR10-1" uid="Base^UR10(2)_UR10-1" grounded="true" entityUid="Base^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="Size 3 Joint^UR10(2)_UR10-1" uid="Size 3 Joint^UR10(2)_UR10-1" grounded="true" entityUid="Size 3 Joint^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 7.0000000000000001e-15 -4.0000000000000003e-15 4.0000000000000003e-15 0 1 7.0000000000000001e-15 -1 0</Rotation>
+<Translation>-0.0099999999999989993 0.6744 -0.101840710537543</Translation>
+</Transform>
+</Instance>
+<Instance name="Size 2 Joint^UR10(2)_UR10-1" uid="Size 2 Joint^UR10(2)_UR10-1" grounded="true" entityUid="Size 2 Joint^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 1.0000000000000001e-15 4.0000000000000003e-15 4.0000000000000003e-15 0 -1 -1.0000000000000001e-15 1 0</Rotation>
+<Translation>-1.3e-14 1.428000000000001 -0.23139071053754301</Translation>
+</Transform>
+</Instance>
+<Instance name="Size 4 Joint^UR10(2)_UR10-2" uid="Size 4 Joint^UR10(2)_UR10-2" grounded="true" entityUid="Size 4 Joint^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-1.0000000000000001e-15 0.128 -0.17600000000000099</Translation>
+</Transform>
+</Instance>
+<Instance name="Size 2 Joint^UR10(2)_UR10-2" uid="Size 2 Joint^UR10(2)_UR10-2" grounded="true" entityUid="Size 2 Joint^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 -1.1e-14 4.0000000000000003e-15 4.0000000000000003e-15 0 -1 1.1e-14 1 0</Rotation>
+<Translation>-2.9999999999999998e-15 1.3123 -0.115690710537543</Translation>
+</Transform>
+</Instance>
+<Instance name="Tool flange^UR10(2)_UR10-1" uid="Tool flange^UR10(2)_UR10-1" grounded="true" entityUid="Tool flange^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 0 4.0000000000000003e-15 4.0000000000000003e-15 0 -1 0 1 0</Rotation>
+<Translation>0.067218811525937006 1.454350596503563 -0.25426439661127898</Translation>
+</Transform>
+</Instance>
+<Instance name="Upper arm^UR10(2)_UR10-1" uid="Upper arm^UR10(2)_UR10-1" grounded="true" entityUid="Upper arm^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>-2.9999999999999998e-15 0.20700000000000299 -0.17600000000000099</Translation>
+</Transform>
+</Instance>
+<Instance name="Size 3 Elbow^UR10(2)_UR10-1" uid="Size 3 Elbow^UR10(2)_UR10-1" grounded="true" entityUid="Size 3 Elbow^UR10(2)_UR10*:*Standard">
+<Transform>
+<Rotation>7.0000000000000001e-15 4.0000000000000003e-15 -1 0 -1 -4.0000000000000003e-15 -1 0 -7.0000000000000001e-15</Rotation>
+<Translation>-0.013897775271512 0.75908171136274805 -0.045519593852709997</Translation>
+</Transform>
+</Instance>
+</Instance>
+</InstanceTree>
+<Constraints>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+<Assembly name="UR10(2)^UR10" uid="UR10(2)^UR10" version="104">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<AssemblyFile name="UR10.SLDASM" type="SolidWorks Assembly"/>
+</Assembly>
+</Assemblies>
+<Parts>
+<Part name="Base^UR10(2)_UR10" uid="Base^UR10(2)_UR10*:*Standard" version="107">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.70921945933462693</Mass>
+<CenterOfMass>7.2223047242828582e-06 0.018439080324837816 0.00047493926530582257</CenterOfMass>
+<Inertia>0.0011743881022613586 0.0021478149428616269 0.001146348365286281 -2.6951669618329764e-07 -5.6285959445426895e-08 8.1530991372734199e-08</Inertia>
+</MassProperties>
+<GeometryFile name="Base-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Lower arm^UR10(2)_UR10" uid="Lower arm^UR10(2)_UR10*:*Standard" version="105">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>2.6685344821740813</Mass>
+<CenterOfMass>-0.023617744015534747 0.022236182274752998 -0.0042755394109121846</CenterOfMass>
+<Inertia>0.0025382316578461462 0.04803707211794904 0.04803707211794904 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Lower arm-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Size 2 Joint^UR10(2)_UR10" uid="Size 2 Joint^UR10(2)_UR10*:*Standard" version="110">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.72938504402824378</Mass>
+<CenterOfMass>-1.2789401280323371e-05 0.057832827596324125 0.0075956638088488472</CenterOfMass>
+<Inertia>0.0011180497532287451 0.00088505465445687685 0.0010340253002900568 -9.1100110568493548e-05 1.3257328400778972e-07 1.5208077940936495e-07</Inertia>
+</MassProperties>
+<GeometryFile name="Size 2 Joint-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Diffuse r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Specular r="0.44117647058823528" g="0.44117647058823528" b="0.44117647058823528" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Size 3 Elbow^UR10(2)_UR10" uid="Size 3 Elbow^UR10(2)_UR10*:*Standard" version="112">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>1.2587992391278511</Mass>
+<CenterOfMass>0.0089081752151709426 0.0077646433623306376 -0.013893761637212771</CenterOfMass>
+<Inertia>0.0025097437102420462 0.0023953066143964294 0.0025702021646763235 8.1115109008337662e-07 5.0827467407209489e-07 -0.00022245544951904147</Inertia>
+</MassProperties>
+<GeometryFile name="Size 3 Elbow-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Diffuse r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Specular r="0.44117647058823528" g="0.44117647058823528" b="0.44117647058823528" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Size 3 Joint^UR10(2)_UR10" uid="Size 3 Joint^UR10(2)_UR10*:*Standard" version="112">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>1.3344661190033131</Mass>
+<CenterOfMass>0.010566712906736433 0.063752218406204875 0.055774448734112289</CenterOfMass>
+<Inertia>0.0028955176538697129 0.0026426865527199787 0.0027129657172801566 0.00026992782473675637 -1.6323762667409978e-07 3.0430444329872687e-06</Inertia>
+</MassProperties>
+<GeometryFile name="Size 3 Joint-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Diffuse r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Specular r="0.44117647058823528" g="0.44117647058823528" b="0.44117647058823528" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Size 4 Joint^UR10(2)_UR10" uid="Size 4 Joint^UR10(2)_UR10*:*Standard" version="113">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>3.0771648216512841</Mass>
+<CenterOfMass>-7.6575633265216075e-06 0.011617031173843054 0.011445266598633824</CenterOfMass>
+<Inertia>0.011504789623972059 0.010742902066407376 0.010135844980041029 0.00086054923726039683 -1.9653104274221801e-06 8.7700069957161492e-07</Inertia>
+</MassProperties>
+<GeometryFile name="Size 4 Joint-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Diffuse r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Specular r="0.44117647058823528" g="0.44117647058823528" b="0.44117647058823528" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Tool flange^UR10(2)_UR10" uid="Tool flange^UR10(2)_UR10*:*Standard" version="107">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>0.15951060057187763</Mass>
+<CenterOfMass>-0.067218814359112186 0.015633621766452638 0.027271241387251902</CenterOfMass>
+<Inertia>8.2229855344842116e-05 0.00014994376039924992 8.7767664156981908e-05 4.2726354990060904e-07 -2.2886027348528162e-11 -4.1414197868635263e-12</Inertia>
+</MassProperties>
+<GeometryFile name="Tool flange-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Diffuse r="0.88235294117647056" g="0.88235294117647056" b="0.88235294117647056" a="1"/>
+<Specular r="0.44117647058823528" g="0.44117647058823528" b="0.44117647058823528" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+<Part name="Upper arm^UR10(2)_UR10" uid="Upper arm^UR10(2)_UR10*:*Standard" version="105">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="UR10(2)_UR10.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>4.3051218739754322</Mass>
+<CenterOfMass>0 0.23373827410463457 0</CenterOfMass>
+<Inertia>0.082156537838613111 0.00649156945432002 0.082156537838613111 0 0 0</Inertia>
+</MassProperties>
+<GeometryFile name="Upper arm-UR10(2)_UR10_Standard_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>
