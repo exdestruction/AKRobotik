@@ -1,3 +1,9 @@
 slprj/
 *.autosave
 *.slxc
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.gz
