@@ -4,3 +4,10 @@ slprj/
 *.asv
 joint*
 dataset*
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.gz
+*.toc
