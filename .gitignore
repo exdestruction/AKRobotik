@@ -1,6 +1,9 @@
 slprj/
 *.autosave
 *.slxc
+*.asv
+joint*
+dataset*
 *.aux
 *.bbl
 *.blg
