@@ -1,9 +1,4 @@
 clear;
-omega0 = 0;
-omega_dot0 = 0;
-v_dot = 0;
-
-initial_params = [omega0, omega_dot0, v_dot];
 
 % 1 row - 1 joint
 waypoints =[0 35 35 30 30 33 33 30 30 0;
