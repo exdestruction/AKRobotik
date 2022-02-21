@@ -1,5 +1,3 @@
-dt = 0.001;
-
 if size(q,1) > size(q,2)
 	q = q';
 	q_dot = q_dot';
@@ -24,14 +22,11 @@ Ic = cat(4, Ic_1, Ic_2, Ic_3, Ic_4, Ic_5, Ic_6);
 m = cat(1, m1, m2, m3, m4, m5, m6);
 m = m';
 
-
-
 for i = 1:sim_steps
 	[omega(:,:,i), omega_dot(:,:,i), v_dot(:,:,i), vs_dot(:,:,i)] = ...
 		compute_kinematics(q(:,i), q_dot(:,i), q_2dot(:,i), R(:,:,i,:), R_W0(:,:,i), p(:,i,:), s(:,i,:));
 	tau(:,i) = compute_forces_and_torques(omega(:,:,i), omega_dot(:,:,i), vs_dot(:,:,i), m, Ic(:,:,i,:), p(:,i,:), s(:,i,:), R(:,:,i,:));
 end
-
 
 ts = timeseries(tau, tout, 'Name', 'tau');
 

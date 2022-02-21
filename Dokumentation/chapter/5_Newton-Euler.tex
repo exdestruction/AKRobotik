@@ -29,6 +29,43 @@ Die Sensoren werden in einem Subsystem eingeschloßen. Linke Port der Subsystem 
 
 	\subsubsection{\en{compute_torques_with_newton-euler.m}}
 
+	Dieses Skript wird nach der Simulation ausgeführt (StopFnc Callback in Simulink).
+	Es führt manche Manipulationen mit den Daten, damit sie leichter werden zu bearbeiten.
+
+==========================================>>>>>>>>> (language=MATLAB)
+	if size(q,1) > size(q,2)
+		q = q';
+		q_dot = q_dot';
+		q_2dot = q_2dot';
+		tau_sim = tau_sim';
+	end
+
+	sim_steps = length(q(1,:));
+	n_joints = length(q(:,1));
+
+	omega = zeros(3, n_joints, sim_steps);
+	omega_dot = zeros(3, n_joints, sim_steps);
+	v_dot = zeros(3, n_joints, sim_steps);
+	vs_dot = zeros(3, n_joints, sim_steps);
+	tau = zeros(n_joints, sim_steps);
+
+	% concatenate data from simulation for easier iteration
+	R = cat(4, R_01, R_12, R_23, R_34, R_45, R_56);
+	p = cat(3, p_01', p_12', p_23', p_34', p_45', p_56');
+	s = cat(3, s1', s2', s3', s4', s5', s6');
+	Ic = cat(4, Ic_1, Ic_2, Ic_3, Ic_4, Ic_5, Ic_6);
+	m = cat(1, m1, m2, m3, m4, m5, m6);
+	m = m';
+
+	for i = 1:sim_steps
+		[omega(:,:,i), omega_dot(:,:,i), v_dot(:,:,i), vs_dot(:,:,i)] = ...
+			compute_kinematics(q(:,i), q_dot(:,i), q_2dot(:,i), R(:,:,i,:), R_W0(:,:,i), p(:,i,:), s(:,i,:));
+		tau(:,i) = compute_forces_and_torques(omega(:,:,i), omega_dot(:,:,i), vs_dot(:,:,i), m, Ic(:,:,i,:), p(:,i,:), s(:,i,:), R(:,:,i,:));
+	end
+
+	ts = timeseries(tau, tout, 'Name', 'tau');
+<<<<<<<<<==========================================
+
 	\subsubsection{\en{function compute_kinematics()}}
 
 Diese Funktion repräsentiert ersten Schritt in Newton-Euler-Verfahren - "kinematische Berechnung".
@@ -52,7 +89,7 @@ Die Funktion berechnet die Werte der Geschwindigkeit und Beschleunigungen für K
 
 Dann berechtet sie die Werte von Geschwindigkeiten und Bescheunigungen von K2 bis K6 iterativ.
 
-	==========================================>>>>>>>>> (language=MATLAB)
+==========================================>>>>>>>>> (language=MATLAB)
 	function [omega, omega_dot, v_dot, vs_dot] = compute_kinematics(q, q_dot, q_2dot, R, R_W0, p, s)
 		z = [0 0 1]';
 		n_joints = length(q);
@@ -89,7 +126,7 @@ Dann berechtet sie die Werte von Geschwindigkeiten und Bescheunigungen von K2 bi
 				cross(omega(:, i+1), cross(omega(:,i+1), s(:, 1, i+1)));
 		end
 	end
-	<<<<<<<<<==========================================
+<<<<<<<<<==========================================
 
 
 	Die Gleichungen, die in der Funktion berechnet werden.
@@ -139,6 +176,7 @@ Diese Funktion repräsentiert zweiten Schritt in Newton-Euler-Verfahren - "Berec
 function [tau] = compute_forces_and_torques(omega, omega_dot, vs_dot, m, Ic, p, s, R)
 	z = [0 0 1]';
 	n_joints = length(omega(1,:));
+	% auf n_joints+1 stehen Anfangskräfte und -drehmomente.
 	f = zeros(3, n_joints+1);
 	n = zeros(3, n_joints+1);
 	tau = zeros(1, n_joints);
@@ -155,6 +193,44 @@ function [tau] = compute_forces_and_torques(omega, omega_dot, vs_dot, m, Ic, p, 
 end
 
 <<<<<<<<==============================================
+
+Die Gleichungen, die in der Funktion berechnet werden.
+
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=1\linewidth]{grafic/Fi_gleichung}
+		\caption{Kraft an einem Schwerpunkt Gleichung, Quelle: Roboterdynamik, Vorlesung 11, HHN}
+		\label{fig:Fi_gleichung}
+	\end{figure}
+
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=1\linewidth]{grafic/klein_fi_gleichung}
+		\caption{Gelenkkraft Gleichung, Quelle: Roboterdynamik, Vorlesung 11, HHN}
+		\label{fig:klein_fi_gleichung}
+	\end{figure}
+
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=1\linewidth]{grafic/gross_n_gleichung}
+		\caption{Wirkenden Drehmonent Gleichung, Quelle: Roboterdynamik, Vorlesung 11, HHN}
+		\label{fig:gross_n_gleichung}
+	\end{figure}
+
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=1\linewidth]{grafic/klein_n_gleichung}
+		\caption{Drehmomente in dem Gelenk Gleichung, Quelle: Roboterdynamik, Vorlesung 11, HHN}
+		\label{fig:klein_n_gleichung}
+	\end{figure}
+
+	\begin{figure}[!htbp]
+		\centering
+		\includegraphics[width=1\linewidth]{grafic/tau_gleichung}
+		\caption{Drehmomente in dem Gelenk Gleichung, Quelle: Roboterdynamik, Vorlesung 11, HHN}
+		\label{fig:tau_gleichung}
+	\end{figure}
+
 
 
 
