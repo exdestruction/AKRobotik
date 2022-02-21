@@ -7,7 +7,7 @@ Anders als in der Aufgabenstellung angegeben, existiert jedoch nur eine einzelne
 
 \subsection{Download und Konvertierung der step-Dateien}
 Die step-Datei des UR10 wird auf diversen Webseiten kostenlos zum Download angeboten.
-Für das Projekt wurde die Datei der Firma \en{SG-Automatisierungstechnik GmbH}\footnote{\url{https://www.sg-automation.at/}} verwendet.
+Für das Projekt wurde die Datei der Firma \en{SG-Automatisierungstechnik GmbH}\footnote{\url{https://www.sg-automation.at/1904594/Downloads-UR10}} verwendet.
 Die step-Datei lässt sich jedoch nicht direkt in Matlab einlesen, sondern muss mittels des \en{Simscape Multibody Link Plugin} konvertiert werden.
 Dabei handelt es sich um ein Zusatzprogramm, welches in bestimmten CAD Anwendungen installiert werden kann und den Export von XML- und Geometriedateien ermöglicht \cite{sm_plugin}.
 Als CAD Anwendung für die Konvertierung wurde SolidWorks gewählt. 
@@ -21,11 +21,12 @@ Nach einer kurzen Sichtung des Modells stellte sich heraus, dass die Transformat
 Beim Einfügen von Aktuatoren bewegte sich ausschließlich das angesteuerte Armteil, während der Rest der kinematischen Kette statisch in der Ausgangsposition verblieb. 
 
 Aus diesem Grund wurde der Import einer URDF-Datei des Roboters versucht, was ebenso über den Befehl \en{sm\_import()} möglich ist.
-Die verwendete Datei kann aus dem Github-Repository von \en{Positronics Lab}\footnote{\url{https://github.com/PositronicsLab}}, einer Forschungsorganisation der George Washington Universität, kostenlos heruntergeladen werden.
+Die verwendete Datei kann aus dem Github-Repository von \en{Positronics Lab}\footnote{\url{https://github.com/PositronicsLab/reveal_packages/blob/master/industrial_arm/scenario/models/urdf/ur10/ur10.urdf}}, einer Forschungsorganisation der George Washington Universität, kostenlos heruntergeladen werden.
 Hierbei erzeugt Matlab eine eigene XML-Datei, in welcher das Projekt gespeichert ist.
 Mit Einfügen der step-Dateien der Armteile erhält man ein funktionierendes Robotermodell des UR10. 
 Der originale Output nach Einlesen der URDF-Datei ist in der Abbildung \ref{fig:ur10_origin_modell} zu sehen.
 Die Massen und Trägheiten der Armteile wurden aus der zuvor erhaltenen Geometriedatei entnommen.
+
 
 \begin{figure}[!htbp]
 	\centering
@@ -45,12 +46,12 @@ Dadurch entsteht eine schiefe Ebene, auf der das Robotermodell wie im Video mont
 Das Greifersystem ist aus mehreren Teilen zusammengebaut, einer Werkzeughalterung, zwei Greifern und einem Zylinderstift.
 Die Werkzeughalterung ist ein Prisma mit trapezförmiger Grundfläche.
 Der Zylinderstift, welcher im Beispielvideo zum Betätigen eines Tasters verwendet wird, ist an einer geraden Fläche an der Haltung befestigt.
-Für die beiden seitlich angebrachten Greifer wurde die step-Datei eines möglichst ähnlich aussehenden Greifers von der Website \en{TraceParts}\footnote{\url{https://www.traceparts.com}} verwendet.
+Für die beiden seitlich angebrachten Greifer wurde die step-Datei eines möglichst ähnlich aussehenden Greifers von der Website \en{TraceParts}\footnote{\url{https://www.traceparts.com/de/product/apore-2backenparallelgreifer?CatalogPath=APORE\%3AAPORE.040.010.010&Product=10-28092012-071699}} verwendet.
 Das fertige Robotermodell mit Halterung und Greifersystem ist in Abbildung \ref{fig:ur10_greifer} dargestellt.
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.5\linewidth]{grafic/UR10_Greifer}
+	\includegraphics[width=0.53\linewidth]{grafic/UR10_Greifer}
 	\caption{UR10 mit Halterung und Greifersystem}
 	\label{fig:ur10_greifer}
 \end{figure}
