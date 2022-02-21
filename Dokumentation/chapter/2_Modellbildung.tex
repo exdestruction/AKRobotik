@@ -1,8 +1,76 @@
 \section{Modellbildung des UR10}
 
+Für die erste Aufgabe soll der Roboter in der Matlab Simulationssoftware Simscape modelliert werden.
+Anders als in der Aufgabenstellung angegeben, existiert jedoch nur eine einzelne step-Datei über den gesamten Roboter als Download, welche alle Armteile enthält.
+%und nicht aufgeteilt in die einzelnen Armteile als Download.
+
 
 \subsection{Download und Konvertierung der step-Dateien}
+Die step-Datei des UR10 wird auf diversen Webseiten kostenlos zum Download angeboten.
+Für das Projekt wurde die Datei der Firma \en{SG-Automatisierungstechnik GmbH}\footnote{\url{https://www.sg-automation.at/1904594/Downloads-UR10}} verwendet.
+Die step-Datei lässt sich jedoch nicht direkt in Matlab einlesen, sondern muss mittels des \en{Simscape Multibody Link Plugin} konvertiert werden.
+Dabei handelt es sich um ein Zusatzprogramm, welches in bestimmten CAD Anwendungen installiert werden kann und den Export von XML- und Geometriedateien ermöglicht \cite{sm_plugin}.
+Als CAD Anwendung für die Konvertierung wurde SolidWorks gewählt. 
+Der Dateiexport aus SolidWorks erzeugte eine XML-Datei, eine Geometriedatei \en{UR10\_DataFile.m} sowie acht step-Dateien der verschiedenen Armteile und der Basis.
+
 
 \subsection{Modellierung in Simscape}
 
-\subsection{Denavit-Hartenberg}
+Nun kann die XML-Datei mittels dem Befehl \en{sm\_import()} in Matlab Simscape eingelesen und mit den step-Dateien der Roboterbauteile verknüpft werden.
+Nach einer kurzen Sichtung des Modells stellte sich heraus, dass die Transformationen zwischen den Bauteilen zwar korrekt, jedoch die interne Verknüpfung des Blockdiagramms nicht stimmig war.
+Beim Einfügen von Aktuatoren bewegte sich ausschließlich das angesteuerte Armteil, während der Rest der kinematischen Kette statisch in der Ausgangsposition verblieb. 
+
+Aus diesem Grund wurde der Import einer URDF-Datei des Roboters versucht, was ebenso über den Befehl \en{sm\_import()} möglich ist.
+Die verwendete Datei kann aus dem Github-Repository von \en{Positronics Lab}\footnote{\url{https://github.com/PositronicsLab/reveal_packages/blob/master/industrial_arm/scenario/models/urdf/ur10/ur10.urdf}}, einer Forschungsorganisation der George Washington Universität, kostenlos heruntergeladen werden.
+Hierbei erzeugt Matlab eine eigene XML-Datei, in welcher das Projekt gespeichert ist.
+Mit Einfügen der step-Dateien der Armteile erhält man ein funktionierendes Robotermodell des UR10. 
+Der originale Output nach Einlesen der URDF-Datei ist in der Abbildung \ref{fig:ur10_origin_modell} zu sehen.
+Die Massen und Trägheiten der Armteile wurden aus der zuvor erhaltenen Geometriedatei entnommen.
+
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{grafic/origin_UR10_modell}
+	\caption{Originales Blockdiagramm des UR10 aus der URDF-Datei}
+	\label{fig:ur10_origin_modell}
+\end{figure}
+
+
+\subsection{Integration eines Greifersystems und einer Roboter-Halterung}
+
+Um dem gezeigten Roboter aus dem Beispielvideo möglichst nahe zu kommen, wurde zusätzlich eine Halterung und ein Greifersystem konstruiert.
+Die Halterung besteht aus einem quaderförmigen Block, bei dem eine Kante nach oben verschoben ist. % um die schiefe Ebene auf die der Roboter montiert ist zu simulieren.
+%Auf der so entstandenen schiefen Ebene ist das Robotermodell wie im Video montiert
+Dadurch entsteht eine schiefe Ebene, auf der das Robotermodell wie im Video montiert werden kann.
+
+Das Greifersystem ist aus mehreren Teilen zusammengebaut, einer Werkzeughalterung, zwei Greifern und einem Zylinderstift.
+Die Werkzeughalterung ist ein Prisma mit trapezförmiger Grundfläche.
+Der Zylinderstift, welcher im Beispielvideo zum Betätigen eines Tasters verwendet wird, ist an einer geraden Fläche an der Haltung befestigt.
+Für die beiden seitlich angebrachten Greifer wurde die step-Datei eines möglichst ähnlich aussehenden Greifers von der Website \en{TraceParts}\footnote{\url{https://www.traceparts.com/de/product/apore-2backenparallelgreifer?CatalogPath=APORE\%3AAPORE.040.010.010&Product=10-28092012-071699}} verwendet.
+Das fertige Robotermodell mit Halterung und Greifersystem ist in Abbildung \ref{fig:ur10_greifer} dargestellt.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.53\linewidth]{grafic/UR10_Greifer}
+	\caption{UR10 mit Halterung und Greifersystem}
+	\label{fig:ur10_greifer}
+\end{figure}
+
+
+\newpage
+
+\subsection{Festlegung der Roboterkoordinatensysteme nach Denavit-Hartenberg-Konvention}
+
+Für die spätere Vergleichsrechnung mit dem Newton-Euler-Verfahren ist es von Vorteil die Koordinatensysteme der Gelenkachsen des Roboters einheitlich zu definieren. %eine einheitliche Festlegung der Koordinatensysteme des Roboters zu definieren.
+Hierzu bietet sich die Festlegung nach Denavit-Hartenberg-Konvention an.
+Die nachfolgende Abbildung \ref{fig:ur10_dh} zeigt die Koordinatensysteme, wie sie auch im Blockdiagramm definiert sind.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{grafic/UR10_dh}
+	\caption{Koordinatensysteme der Gelenke und des TCP nach Denavit-Hartenberg-Konvention}
+	\label{fig:ur10_dh}
+\end{figure}
+
+
+
