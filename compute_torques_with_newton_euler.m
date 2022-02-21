@@ -33,16 +33,15 @@ for i = 1:sim_steps
 end
 
 
-% plot(tout(:,1), squeeze(omega(3,1,:)));
-% plot(tout, squeeze(omega_dot(3,1,:)));
-% plot(tout, tau_sim);
 ts = timeseries(tau, tout, 'Name', 'tau');
 
 
 function [omega, omega_dot, v_dot, vs_dot] = compute_kinematics(q, q_dot, q_2dot, R, R_W0, p, s)
 	z = [0 0 1]';
 	n_joints = length(q);
+
 	
+	%initial conditions
 	omega = zeros(3, 6);
 	omega(:,1) = q_dot(1)*z;
 	
@@ -52,18 +51,27 @@ function [omega, omega_dot, v_dot, vs_dot] = compute_kinematics(q, q_dot, q_2dot
 	
 	v_dot = zeros(3,6);
 	% acceleration of Coordinate System
-	v_dot(:,1) = inv(R(:,:,1,1)) * (inv(R_W0) * [0 -9.81 0]') + cross(omega_dot(:, 1), p(:,1,1)) + cross(omega(:,1), cross(omega(:,1), p(:,1,1))); 	
+	v_dot(:,1) = inv(R(:,:,1,1)) * (inv(R_W0) * [0 -9.81 0]') + ...
+		cross(omega_dot(:, 1), p(:,1,1)) + ...
+		cross(omega(:,1), cross(omega(:,1), p(:,1,1))); 
+
 	% acceleration of center of mass (COM)	
-	vs_dot(:,1) = v_dot(:,1) + cross(omega_dot(:, 1), s(:, 1, 1)) + cross(omega(:, 1), cross(omega(:,1), s(:, 1, 1))); 
+	vs_dot(:,1) = v_dot(:,1) + cross(omega_dot(:, 1), s(:, 1, 1)) + ...
+		cross(omega(:, 1), cross(omega(:,1), s(:, 1, 1))); 
 	
 	for i = 1:n_joints-1
     	invR = inv(R(:,:,1,i));
 
     	omega(:,i+1) = invR * (omega(:,i) + q_dot(i+1)*z);
-    	omega_dot(:,i+1) = invR * (omega_dot(:,i) + (z * q_2dot(i+1) + cross(omega(:,i), q_dot(i+1) * z)));
+    	omega_dot(:,i+1) = invR * (omega_dot(:,i) + ...
+			(z * q_2dot(i+1) + cross(omega(:,i), q_dot(i+1) * z)));
 
-		v_dot(:, i+1) = invR * v_dot(:,i) + cross(omega_dot(:, i+1), p(:,1,i+1)) + cross(omega(:,i+1), cross(omega(:,i+1), p(:,1,i+1)));
-		vs_dot(:,i+1) = v_dot(:,i+1) + cross(omega_dot(:, i+1), s(:, 1, i+1)) + cross(omega(:, i+1), cross(omega(:,i+1), s(:, 1, i+1)));
+		v_dot(:, i+1) = invR * v_dot(:,i) + ...
+			cross(omega_dot(:, i+1), p(:,1,i+1)) + ...
+			cross(omega(:,i+1), cross(omega(:,i+1), p(:,1,i+1)));
+		vs_dot(:,i+1) = v_dot(:,i+1) + ...
+			cross(omega_dot(:, i+1), s(:, 1, i+1)) + ...
+			cross(omega(:, i+1), cross(omega(:,i+1), s(:, 1, i+1)));
 	end
 end
 
@@ -73,10 +81,11 @@ function [tau] = compute_forces_and_torques(omega, omega_dot, vs_dot, m, Ic, p, 
 	f = zeros(3, n_joints+1);
 	n = zeros(3, n_joints+1);
 	tau = zeros(1, n_joints);
+	R(:,:,1,7) = eye(3,3);
 
 	for i = n_joints:-1:1
 		F(:,i) = m(i) * vs_dot(:, i);
-		f(:,i) = f(:,i+1) + F(:,i);
+		f(:,i) = R(:,:,1,i+1) * f(:,i+1) + F(:,i);
 		N(:,i) = Ic(:,:,1,i) * omega_dot(:,i) + cross(omega(:,i), Ic(:,:,1,i) * omega(:,i));
 		n(:,i) = n(:,i+1) + cross(p(:,1,i)+s(:,i), F(:,i)) + cross(p(:,i), f(:,i+1)) + N(:,i);
 		tau(i) = n(:,i)' * inv(R(:,:,1,i)) * z;
