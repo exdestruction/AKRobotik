@@ -22,7 +22,6 @@ Beim Einfügen von Aktuatoren bewegte sich ausschließlich das angesteuerte Armt
 
 Aus diesem Grund wurde der Import einer URDF-Datei des Roboters versucht, was ebenso über den Befehl \en{sm\_import()} möglich ist.
 Die verwendete Datei kann aus dem Github-Repository von \en{Positronics Lab}\footnote{\url{https://github.com/PositronicsLab/reveal_packages/blob/master/industrial_arm/scenario/models/urdf/ur10/ur10.urdf}}, einer Forschungsorganisation der George Washington Universität, kostenlos heruntergeladen werden.
-Hierbei erzeugt Matlab eine eigene XML-Datei, in welcher das Projekt gespeichert ist.
 Mit Einfügen der step-Dateien der Armteile erhält man ein funktionierendes Robotermodell des UR10. 
 Der originale Output nach Einlesen der URDF-Datei ist in der Abbildung \ref{fig:ur10_origin_modell} zu sehen.
 Die Massen und Trägheiten der Armteile wurden aus der zuvor erhaltenen Geometriedatei entnommen.
@@ -51,7 +50,7 @@ Das fertige Robotermodell mit Halterung und Greifersystem ist in Abbildung \ref{
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.53\linewidth]{grafic/UR10_Greifer}
+	\includegraphics[width=0.5\linewidth]{grafic/UR10_Greifer}
 	\caption{UR10 mit Halterung und Greifersystem}
 	\label{fig:ur10_greifer}
 \end{figure}
@@ -64,6 +63,7 @@ Das fertige Robotermodell mit Halterung und Greifersystem ist in Abbildung \ref{
 Für die spätere Vergleichsrechnung mit dem Newton-Euler-Verfahren ist es von Vorteil die Koordinatensysteme der Gelenkachsen des Roboters einheitlich zu definieren. %eine einheitliche Festlegung der Koordinatensysteme des Roboters zu definieren.
 Hierzu bietet sich die Festlegung nach Denavit-Hartenberg-Konvention an.
 Die nachfolgende Abbildung \ref{fig:ur10_dh} zeigt die Koordinatensysteme, wie sie auch im Blockdiagramm definiert sind.
+Der TCP wurde dabei an die Spitze eines Greifers gelegt.
 
 \begin{figure}[!htbp]
 	\centering
